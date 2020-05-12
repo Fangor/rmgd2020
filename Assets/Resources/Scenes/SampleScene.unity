@@ -215,8 +215,9 @@ GameObject:
   - component: {fileID: 1456449852}
   - component: {fileID: 1456449851}
   - component: {fileID: 1456449850}
+  - component: {fileID: 1456449853}
   m_Layer: 0
-  m_Name: New SpriteShapeController (1)
+  m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -348,3 +349,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1456449853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456449849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f628f4fc766c89649b9ab1bdc9118e32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
