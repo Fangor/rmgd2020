@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9040866880920160998}
   - component: {fileID: 9040866880920160996}
   - component: {fileID: 9040866880920160995}
-  - component: {fileID: 9040866880920160999}
+  - component: {fileID: 656185456}
   m_Layer: 0
   m_Name: Player Cat
   m_TagString: Untagged
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_DefaultActionMap: Cat
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &9040866880920160999
+--- !u!114 &656185456
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

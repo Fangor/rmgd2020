@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class CubeController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     Vector2 i_movement;
     float moveSpeed = 10f;
@@ -30,11 +30,11 @@ public class CubeController : MonoBehaviour
         i_movement = value.Get<Vector2>();
     }
 
-    private void OnMoveUp()
+    private void OnButtonSouth()
     {
         transform.Translate(transform.up);
     }
-    private void OnMoveDown()
+    private void OnButtonEast()
     {
         transform.Translate(-transform.up);
     }
