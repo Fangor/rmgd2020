@@ -15,6 +15,12 @@ public class PlayerController : MonoBehaviour
 
     private bool hasToy = false;
 
+    public Rigidbody2D ballPrefab;
+
+    public float dropItemSpeed = 1f;
+
+
+
     private Rigidbody2D rb;
     private GrabRadius grabRadius;
 
@@ -95,12 +101,21 @@ public class PlayerController : MonoBehaviour
     private void OnButtonWest()
     {
         //Attack/Grab/Release
-        if (grabRadius.CanReachToy()){
-            Debug.Log("Grabbing toy");
+        if (!hasToy && grabRadius.CanReachToy()){
             Collider2D toy = grabRadius.getToy();
             hasToy = true;
             BallInMouth ballInMouth = GetComponentInChildren<BallInMouth>();
             ballInMouth.EnableBallInMouth();
+            Destroy(toy.gameObject);
+        }
+        else if (hasToy){
+            Vector3 ballEjectPos = transform.position;
+            ballEjectPos.y += .2f;
+            Rigidbody2D ballRB = Instantiate(ballPrefab,ballEjectPos, transform.rotation);
+            ballRB.velocity = new Vector2(dropItemSpeed, dropItemSpeed);
+            hasToy = false;
+            BallInMouth ballInMouth = GetComponentInChildren<BallInMouth>();
+            ballInMouth.DisableBallInMouth();
         }
 
     }

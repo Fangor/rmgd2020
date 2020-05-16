@@ -292,6 +292,9 @@ MonoBehaviour:
   initialJumpForce: 5
   continuousJumpForce: 700
   maxTimeToApplyJumpForce: 0.4
+  ballPrefab: {fileID: 1828949541560359778, guid: 6404fd69f1062b742a36bf6968e8dd9a,
+    type: 3}
+  dropItemSpeed: 5
 --- !u!50 &-315923630018866380
 Rigidbody2D:
   serializedVersion: 4

@@ -9,4 +9,10 @@ public class BallInMouth : MonoBehaviour
         spriteRenderer.enabled = true;
 
     }
+
+    public void DisableBallInMouth(){
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.enabled = false;
+
+    }
 }
