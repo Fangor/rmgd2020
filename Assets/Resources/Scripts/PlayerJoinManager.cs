@@ -30,12 +30,18 @@ public class PlayerJoinManager : MonoBehaviour
             spriteRenderer.color = new Color(.9f, .7f, .2f, 1f);
             Transform transform = playerInput.GetComponentInParent<Transform>();
             transform.Translate(-1f, 0,0);
+
+            PlayerController playerController = playerInput.GetComponentInParent<PlayerController>();
+            playerController.playerNumber = 1;
         }
         if (playerNumber == 2){
             player2joined = true;
             UITextManager.instance.Player2Joined();
             Transform transform = playerInput.GetComponentInParent<Transform>();
             transform.Translate(1f, 0,0);
+
+            PlayerController playerController = playerInput.GetComponentInParent<PlayerController>();
+            playerController.playerNumber = 2;
         }
 
         if (player1joined && player2joined){

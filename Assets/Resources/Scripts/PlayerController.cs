@@ -20,9 +20,14 @@ public class PlayerController : MonoBehaviour
     public float dropItemSpeed = 1f;
 
 
+    private int score = 0;
+    public int ballPointsPerSec = 100;
+
+    private float pointTimer = 0f;
 
     private Rigidbody2D rb;
     private GrabRadius grabRadius;
+    public int playerNumber = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +56,15 @@ public class PlayerController : MonoBehaviour
                 timeInAir = 0f;
             }
             
+        }
+
+        pointTimer += Time.deltaTime;
+        if (pointTimer >= 1f){
+            if (hasToy){
+                score += ballPointsPerSec;
+            }
+
+            UITextManager.instance.UpdateScore(playerNumber, score);
         }
     }
 

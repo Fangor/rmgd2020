@@ -12,6 +12,9 @@ public class UITextManager : Singleton<UITextManager>
 
     public TextMeshProUGUI countdownText;
 
+    public TextMeshProUGUI p1ScoreText;
+    public TextMeshProUGUI p2ScoreText;
+
     public int countdownSeconds = 5;
 
     public GameObject titlePanel;
@@ -52,14 +55,14 @@ public class UITextManager : Singleton<UITextManager>
 
     IEnumerator StartCountdownTextCR()
     {
-        int currentCount = 5;
+        int currentCount = countdownSeconds;
         float timeToAnimate = 0f;
         float totalAnimationTime = 1f;
         while (currentCount >= 0)
         {
             timeToAnimate += Time.deltaTime;
             countdownText.color = new Color(countdownText.color.r, countdownText.color.g, countdownText.color.b, totalAnimationTime - timeToAnimate);
-            countdownText.color = new Color(countdownText.color.r, countdownText.color.g, countdownText.color.b, totalAnimationTime - timeToAnimate);
+            //countdownText.color = new Color(countdownText.color.r, countdownText.color.g, countdownText.color.b, totalAnimationTime - timeToAnimate);
 
             if (timeToAnimate >= totalAnimationTime ){
                 currentCount--;
@@ -79,5 +82,16 @@ public class UITextManager : Singleton<UITextManager>
     public void DisplayScores(){
         countdownPanel.SetActive(false);
         scorePanel.SetActive(true);
+    }
+
+    public void UpdateScore(int PlayerNumber, int Score){
+        string paddedScore = Score.ToString("D10");
+        if (PlayerNumber == 1){
+            p1ScoreText.text = "Score: " + paddedScore;
+        }
+        if (PlayerNumber == 2){
+            p2ScoreText.text = "Score: " + paddedScore;
+        }
+        
     }
 }
