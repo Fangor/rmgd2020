@@ -68,10 +68,16 @@ public class UITextManager : Singleton<UITextManager>
             }
             if (currentCount == 0){
                 countdownText.text = "Play!";
+                
             }
             yield return null;
             
         }
+        GameManager.instance.GotoMainGameState();
     }
 
+    public void DisplayScores(){
+        countdownPanel.SetActive(false);
+        scorePanel.SetActive(true);
+    }
 }

@@ -5,8 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    Vector2 i_movement;
-    float moveSpeed = 10f;
+    private Vector2 i_movement;
+    public float moveSpeed = 3f;
 
     // Start is called before the first frame update
     void Start()
@@ -32,11 +32,20 @@ public class PlayerController : MonoBehaviour
 
     private void OnButtonSouth()
     {
-        //transform.Translate(transform.up);
+        //Attack/defend
     }
     private void OnButtonEast()
     {
-        //transform.Translate(-transform.up);
+        //Interact
+    }
+    private void OnButtonNorth()
+    {
+        //Purr
+    }
+
+    private void OnButtonWest()
+    {
+        //Meow
     }
 
     private void OnButtonStart()

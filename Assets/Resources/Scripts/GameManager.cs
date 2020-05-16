@@ -46,6 +46,8 @@ public class GameManager : Singleton<GameManager>
     public void GotoMainGameState()
     {
         currentState = GameState.MainGame;
+        LevelManager.instance.ClearPen();
+        UITextManager.instance.DisplayScores();
     }
 
     public void GotoVictoryState()
