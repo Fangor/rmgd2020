@@ -39,5 +39,13 @@ public class PlayerController : MonoBehaviour
         //transform.Translate(-transform.up);
     }
 
+    private void OnButtonStart()
+    {
+        if (GameManager.instance.currentState == GameState.PlayersReady)
+        {
+            GameManager.instance.GotoCountdownState();
+            UITextManager.instance.DisplayCountdown();
+        }
+    }
 
 }

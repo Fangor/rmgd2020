@@ -9,7 +9,7 @@ public enum GameState
     PlayersReady,
     Countdown,
     MainGame,
-    VictoryScreen, 
+    Victory 
 }
 
 public class GameManager : Singleton<GameManager>
@@ -35,27 +35,21 @@ public class GameManager : Singleton<GameManager>
     }
     public void GotoReadyState()
     {
-        //SceneManager.LoadScene("VictoryScreen");
-    }
-    public void AssessTreasureCount(int inInt)
-    {
-        if (inInt < 1)
-        {
-            // If there's no money left on the field,
-            // sets game state to Game Over and calls UI Text Manager
-            // to turn on the GameOver UI panel.
-            currentState = GameState.VictoryScreen;
-            //UITextManager.instance.OnGameOver();
-            //SceneManager.LoadScene("GameOverScreen");
-        }
-        else
-        {
-            currentState = GameState.MainGame;
-        }
+        currentState = GameState.PlayersReady;
     }
 
-    public void GotoVictoryScene()
+    public void GotoCountdownState()
     {
-        //SceneManager.LoadScene("VictoryScreen");
+        currentState = GameState.Countdown;
+    }
+
+    public void GotoMainGameState()
+    {
+        currentState = GameState.MainGame;
+    }
+
+    public void GotoVictoryState()
+    {
+        currentState = GameState.Victory;
     }
 }
