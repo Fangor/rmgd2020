@@ -13,12 +13,20 @@ public class PlayerController : MonoBehaviour
     public float maxTimeToApplyJumpForce = .5f;
     private float timeInAir = 0f;
 
+    private bool hasToy = false;
+
     private Rigidbody2D rb;
+    private GrabRadius grabRadius;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        
+    }
+
+    void Awake(){
+        grabRadius = GetComponentInChildren<GrabRadius>();
     }
 
     // Update is called once per frame
@@ -28,7 +36,6 @@ public class PlayerController : MonoBehaviour
 
         if (isJumping){
 
-            Debug.Log("isJumping");
             timeInAir += Time.deltaTime;
             if (timeInAir <= maxTimeToApplyJumpForce){
                 rb.AddForce(Vector2.up * continuousJumpForce * Time.deltaTime, ForceMode2D.Force);
@@ -87,7 +94,15 @@ public class PlayerController : MonoBehaviour
 
     private void OnButtonWest()
     {
-        //Meow
+        //Attack/Grab/Release
+        if (grabRadius.CanReachToy()){
+            Debug.Log("Grabbing toy");
+            Collider2D toy = grabRadius.getToy();
+            hasToy = true;
+            BallInMouth ballInMouth = GetComponentInChildren<BallInMouth>();
+            ballInMouth.EnableBallInMouth();
+        }
+
     }
 
     private void OnButtonStart()

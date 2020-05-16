@@ -10,6 +10,7 @@ public class PlayerFeet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D otherCollider){
         if ("ground".Equals(otherCollider.tag)){
             touchingGround = true;
+            groundCollidersImTouching.Add(otherCollider);
         }
     }
 
