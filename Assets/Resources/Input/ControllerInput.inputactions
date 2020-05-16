@@ -22,12 +22,20 @@
                     "interactions": ""
                 },
                 {
-                    "name": "ButtonSouth",
+                    "name": "ButtonSouthPress",
                     "type": "Button",
                     "id": "86b628ad-ae80-46e3-a554-9f703ef429ff",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Press"
+                },
+                {
+                    "name": "ButtonSouthRelease",
+                    "type": "Button",
+                    "id": "08d2176d-cd18-4675-a975-95eed0e055dd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)"
                 },
                 {
                     "name": "ButtonEast",
@@ -57,14 +65,6 @@
                     "name": "ButtonSelect",
                     "type": "Button",
                     "id": "892b4c87-dc93-4eb2-b1a0-cb9bfbb21a75",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "ButtonAny",
-                    "type": "Button",
-                    "id": "c412a7de-28aa-4bd3-9c02-a6e0364bd4c4",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -111,7 +111,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ButtonSouth",
+                    "action": "ButtonSouthPress",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -161,12 +161,12 @@
                 },
                 {
                     "name": "",
-                    "id": "8fc545ea-94eb-483a-bf77-ed7c99fc1e8e",
-                    "path": "<Gamepad>/leftShoulder",
+                    "id": "ba6cf218-e7b5-4525-8b4b-cfe5685cdded",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ButtonAny",
+                    "action": "ButtonSouthRelease",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -35,12 +35,20 @@ public class @ControllerInput : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""ButtonSouth"",
+                    ""name"": ""ButtonSouthPress"",
                     ""type"": ""Button"",
                     ""id"": ""86b628ad-ae80-46e3-a554-9f703ef429ff"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
+                },
+                {
+                    ""name"": ""ButtonSouthRelease"",
+                    ""type"": ""Button"",
+                    ""id"": ""08d2176d-cd18-4675-a975-95eed0e055dd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=1)""
                 },
                 {
                     ""name"": ""ButtonEast"",
@@ -70,14 +78,6 @@ public class @ControllerInput : IInputActionCollection, IDisposable
                     ""name"": ""ButtonSelect"",
                     ""type"": ""Button"",
                     ""id"": ""892b4c87-dc93-4eb2-b1a0-cb9bfbb21a75"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""ButtonAny"",
-                    ""type"": ""Button"",
-                    ""id"": ""c412a7de-28aa-4bd3-9c02-a6e0364bd4c4"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -124,7 +124,7 @@ public class @ControllerInput : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ButtonSouth"",
+                    ""action"": ""ButtonSouthPress"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -174,12 +174,12 @@ public class @ControllerInput : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""8fc545ea-94eb-483a-bf77-ed7c99fc1e8e"",
-                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""id"": ""ba6cf218-e7b5-4525-8b4b-cfe5685cdded"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ButtonAny"",
+                    ""action"": ""ButtonSouthRelease"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -192,12 +192,12 @@ public class @ControllerInput : IInputActionCollection, IDisposable
         m_Cat = asset.FindActionMap("Cat", throwIfNotFound: true);
         m_Cat_Move = m_Cat.FindAction("Move", throwIfNotFound: true);
         m_Cat_ButtonNorth = m_Cat.FindAction("ButtonNorth", throwIfNotFound: true);
-        m_Cat_ButtonSouth = m_Cat.FindAction("ButtonSouth", throwIfNotFound: true);
+        m_Cat_ButtonSouthPress = m_Cat.FindAction("ButtonSouthPress", throwIfNotFound: true);
+        m_Cat_ButtonSouthRelease = m_Cat.FindAction("ButtonSouthRelease", throwIfNotFound: true);
         m_Cat_ButtonEast = m_Cat.FindAction("ButtonEast", throwIfNotFound: true);
         m_Cat_ButtonWest = m_Cat.FindAction("ButtonWest", throwIfNotFound: true);
         m_Cat_ButtonStart = m_Cat.FindAction("ButtonStart", throwIfNotFound: true);
         m_Cat_ButtonSelect = m_Cat.FindAction("ButtonSelect", throwIfNotFound: true);
-        m_Cat_ButtonAny = m_Cat.FindAction("ButtonAny", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -249,24 +249,24 @@ public class @ControllerInput : IInputActionCollection, IDisposable
     private ICatActions m_CatActionsCallbackInterface;
     private readonly InputAction m_Cat_Move;
     private readonly InputAction m_Cat_ButtonNorth;
-    private readonly InputAction m_Cat_ButtonSouth;
+    private readonly InputAction m_Cat_ButtonSouthPress;
+    private readonly InputAction m_Cat_ButtonSouthRelease;
     private readonly InputAction m_Cat_ButtonEast;
     private readonly InputAction m_Cat_ButtonWest;
     private readonly InputAction m_Cat_ButtonStart;
     private readonly InputAction m_Cat_ButtonSelect;
-    private readonly InputAction m_Cat_ButtonAny;
     public struct CatActions
     {
         private @ControllerInput m_Wrapper;
         public CatActions(@ControllerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Cat_Move;
         public InputAction @ButtonNorth => m_Wrapper.m_Cat_ButtonNorth;
-        public InputAction @ButtonSouth => m_Wrapper.m_Cat_ButtonSouth;
+        public InputAction @ButtonSouthPress => m_Wrapper.m_Cat_ButtonSouthPress;
+        public InputAction @ButtonSouthRelease => m_Wrapper.m_Cat_ButtonSouthRelease;
         public InputAction @ButtonEast => m_Wrapper.m_Cat_ButtonEast;
         public InputAction @ButtonWest => m_Wrapper.m_Cat_ButtonWest;
         public InputAction @ButtonStart => m_Wrapper.m_Cat_ButtonStart;
         public InputAction @ButtonSelect => m_Wrapper.m_Cat_ButtonSelect;
-        public InputAction @ButtonAny => m_Wrapper.m_Cat_ButtonAny;
         public InputActionMap Get() { return m_Wrapper.m_Cat; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -282,9 +282,12 @@ public class @ControllerInput : IInputActionCollection, IDisposable
                 @ButtonNorth.started -= m_Wrapper.m_CatActionsCallbackInterface.OnButtonNorth;
                 @ButtonNorth.performed -= m_Wrapper.m_CatActionsCallbackInterface.OnButtonNorth;
                 @ButtonNorth.canceled -= m_Wrapper.m_CatActionsCallbackInterface.OnButtonNorth;
-                @ButtonSouth.started -= m_Wrapper.m_CatActionsCallbackInterface.OnButtonSouth;
-                @ButtonSouth.performed -= m_Wrapper.m_CatActionsCallbackInterface.OnButtonSouth;
-                @ButtonSouth.canceled -= m_Wrapper.m_CatActionsCallbackInterface.OnButtonSouth;
+                @ButtonSouthPress.started -= m_Wrapper.m_CatActionsCallbackInterface.OnButtonSouthPress;
+                @ButtonSouthPress.performed -= m_Wrapper.m_CatActionsCallbackInterface.OnButtonSouthPress;
+                @ButtonSouthPress.canceled -= m_Wrapper.m_CatActionsCallbackInterface.OnButtonSouthPress;
+                @ButtonSouthRelease.started -= m_Wrapper.m_CatActionsCallbackInterface.OnButtonSouthRelease;
+                @ButtonSouthRelease.performed -= m_Wrapper.m_CatActionsCallbackInterface.OnButtonSouthRelease;
+                @ButtonSouthRelease.canceled -= m_Wrapper.m_CatActionsCallbackInterface.OnButtonSouthRelease;
                 @ButtonEast.started -= m_Wrapper.m_CatActionsCallbackInterface.OnButtonEast;
                 @ButtonEast.performed -= m_Wrapper.m_CatActionsCallbackInterface.OnButtonEast;
                 @ButtonEast.canceled -= m_Wrapper.m_CatActionsCallbackInterface.OnButtonEast;
@@ -297,9 +300,6 @@ public class @ControllerInput : IInputActionCollection, IDisposable
                 @ButtonSelect.started -= m_Wrapper.m_CatActionsCallbackInterface.OnButtonSelect;
                 @ButtonSelect.performed -= m_Wrapper.m_CatActionsCallbackInterface.OnButtonSelect;
                 @ButtonSelect.canceled -= m_Wrapper.m_CatActionsCallbackInterface.OnButtonSelect;
-                @ButtonAny.started -= m_Wrapper.m_CatActionsCallbackInterface.OnButtonAny;
-                @ButtonAny.performed -= m_Wrapper.m_CatActionsCallbackInterface.OnButtonAny;
-                @ButtonAny.canceled -= m_Wrapper.m_CatActionsCallbackInterface.OnButtonAny;
             }
             m_Wrapper.m_CatActionsCallbackInterface = instance;
             if (instance != null)
@@ -310,9 +310,12 @@ public class @ControllerInput : IInputActionCollection, IDisposable
                 @ButtonNorth.started += instance.OnButtonNorth;
                 @ButtonNorth.performed += instance.OnButtonNorth;
                 @ButtonNorth.canceled += instance.OnButtonNorth;
-                @ButtonSouth.started += instance.OnButtonSouth;
-                @ButtonSouth.performed += instance.OnButtonSouth;
-                @ButtonSouth.canceled += instance.OnButtonSouth;
+                @ButtonSouthPress.started += instance.OnButtonSouthPress;
+                @ButtonSouthPress.performed += instance.OnButtonSouthPress;
+                @ButtonSouthPress.canceled += instance.OnButtonSouthPress;
+                @ButtonSouthRelease.started += instance.OnButtonSouthRelease;
+                @ButtonSouthRelease.performed += instance.OnButtonSouthRelease;
+                @ButtonSouthRelease.canceled += instance.OnButtonSouthRelease;
                 @ButtonEast.started += instance.OnButtonEast;
                 @ButtonEast.performed += instance.OnButtonEast;
                 @ButtonEast.canceled += instance.OnButtonEast;
@@ -325,9 +328,6 @@ public class @ControllerInput : IInputActionCollection, IDisposable
                 @ButtonSelect.started += instance.OnButtonSelect;
                 @ButtonSelect.performed += instance.OnButtonSelect;
                 @ButtonSelect.canceled += instance.OnButtonSelect;
-                @ButtonAny.started += instance.OnButtonAny;
-                @ButtonAny.performed += instance.OnButtonAny;
-                @ButtonAny.canceled += instance.OnButtonAny;
             }
         }
     }
@@ -336,11 +336,11 @@ public class @ControllerInput : IInputActionCollection, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnButtonNorth(InputAction.CallbackContext context);
-        void OnButtonSouth(InputAction.CallbackContext context);
+        void OnButtonSouthPress(InputAction.CallbackContext context);
+        void OnButtonSouthRelease(InputAction.CallbackContext context);
         void OnButtonEast(InputAction.CallbackContext context);
         void OnButtonWest(InputAction.CallbackContext context);
         void OnButtonStart(InputAction.CallbackContext context);
         void OnButtonSelect(InputAction.CallbackContext context);
-        void OnButtonAny(InputAction.CallbackContext context);
     }
 }

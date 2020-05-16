@@ -7,7 +7,11 @@ public class PlayerController : MonoBehaviour
 {
     private Vector2 i_movement;
     public float moveSpeed = 3f;
-    public float jumpForce = 1f;
+    public float initialJumpForce = 150f;
+    public float continuousJumpForce = 150f;
+    private bool isJumping = false;
+    public float maxTimeToApplyJumpForce = .5f;
+    private float timeInAir = 0f;
 
     private Rigidbody2D rb;
 
@@ -21,6 +25,20 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Move();
+
+        if (isJumping){
+
+            Debug.Log("isJumping");
+            timeInAir += Time.deltaTime;
+            if (timeInAir <= maxTimeToApplyJumpForce){
+                rb.AddForce(Vector2.up * continuousJumpForce * Time.deltaTime, ForceMode2D.Force);
+            }
+            else{
+                isJumping = false;
+                timeInAir = 0f;
+            }
+            
+        }
     }
 
     private void Move(){
@@ -42,14 +60,22 @@ public class PlayerController : MonoBehaviour
         i_movement.y = 0f;
     }
 
-    private void OnButtonSouth()
+    private void OnButtonSouthPress()
     {
         //Jump
         PlayerFeet playerFeet = GetComponentInChildren<PlayerFeet>();
         if (playerFeet.touchingGround){
-            rb.AddForce(Vector2.up * jumpForce);
+            isJumping = true;
+            timeInAir = 0f;
+            rb.AddForce(Vector2.up * initialJumpForce, ForceMode2D.Impulse);
         }
     }
+    private void OnButtonSouthRelease()
+    {
+        //Jump
+        isJumping = false;
+    }
+
     private void OnButtonEast()
     {
         //Interact
