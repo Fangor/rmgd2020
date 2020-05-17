@@ -15,6 +15,9 @@ public class UITextManager : Singleton<UITextManager>
     public TextMeshProUGUI p1ScoreText;
     public TextMeshProUGUI p2ScoreText;
 
+    public TextMeshProUGUI p1ComboBarText;
+    public TextMeshProUGUI p2ComboBarText;
+
     public TextMeshProUGUI roundTimerText;
     public TextMeshProUGUI victoryText;
 
@@ -68,7 +71,6 @@ public class UITextManager : Singleton<UITextManager>
         {
             timeToAnimate += Time.deltaTime;
             countdownText.color = new Color(countdownText.color.r, countdownText.color.g, countdownText.color.b, totalAnimationTime - timeToAnimate);
-            //countdownText.color = new Color(countdownText.color.r, countdownText.color.g, countdownText.color.b, totalAnimationTime - timeToAnimate);
 
             if (timeToAnimate >= totalAnimationTime ){
                 currentCount--;
@@ -99,6 +101,19 @@ public class UITextManager : Singleton<UITextManager>
             p2ScoreText.text = "Score: " + paddedScore;
         }
         
+    }
+
+    public void UpdateComboBar(int PlayerNumber, List<string> combos){
+        string comboText = "";
+        foreach (string combo in combos){
+            comboText += "\n" + combo;
+        }
+        if (PlayerNumber == 1){
+            p1ComboBarText.text = comboText;
+        }
+        if (PlayerNumber == 2){
+            p2ComboBarText.text = comboText;
+        }
     }
 
     public void UpdateRoundTime(float roundTimer){

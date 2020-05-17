@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
     private bool isSlashing = false;
     private bool isFacingRight = true;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -67,15 +68,19 @@ public class PlayerController : MonoBehaviour
         }
 
         pointTimer += Time.deltaTime;
+        List<string> comboList = new List<string>();
         if (pointTimer >= 1f){
             if (hasToy){
                 score += ballPointsPerSec;
+                comboList.Add("+" + ballPointsPerSec + "\tToy");
             }
             if (transform.position.y > 0f){
                 score += highGroundPointsPerSec;
+                comboList.Add("+" + highGroundPointsPerSec + "\tHighGround");
             }
 
             UITextManager.instance.UpdateScore(playerNumber, score);
+            UITextManager.instance.UpdateComboBar(playerNumber, comboList);
             pointTimer = 0f;
         }
     }
