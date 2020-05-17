@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
     public float slashTime = .2f;
     public float slashCooldown = .3f;
     private bool isSlashing = false;
+    private bool isFacingRight = true;
 
     // Start is called before the first frame update
     void Start()
@@ -77,6 +78,18 @@ public class PlayerController : MonoBehaviour
     private void Move(){
 
         Vector2 movement = new Vector2(i_movement.x, i_movement.y).normalized * moveSpeed * Time.deltaTime;
+        if (i_movement.x > 0 && !isFacingRight){
+            isFacingRight = true;
+            Vector3 scale = transform.localScale;
+            scale.x = Mathf.Abs(scale.x);
+            transform.localScale = scale;
+        }
+        else if (i_movement.x < 0 && isFacingRight){
+            isFacingRight = false;
+            Vector3 scale = transform.localScale;
+            scale.x = -Mathf.Abs(scale.x);
+            transform.localScale = scale;
+        }
         transform.Translate(movement);
     }
 

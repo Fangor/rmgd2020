@@ -117,7 +117,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.12274504, y: -0.1907687}
+  m_Offset: {x: 0.033724785, y: -0.1907687}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -128,7 +128,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.71902704, y: 0.24572316}
+  m_Size: {x: 0.66709816, y: 0.24572316}
   m_EdgeRadius: 0
 --- !u!114 &2956722074568007233
 MonoBehaviour:
@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 9040866880920160995}
   - component: {fileID: 656185456}
   - component: {fileID: -315923630018866380}
-  - component: {fileID: 3220647775636564152}
+  - component: {fileID: 6873754283216007486}
   m_Layer: 0
   m_Name: Player Cat
   m_TagString: Untagged
@@ -298,8 +298,8 @@ MonoBehaviour:
   ballPointsPerSec: 100
   playerNumber: 1
   slash: {fileID: 8007617223964939538}
-  slashTime: 0.2
-  slashCooldown: 0.1
+  slashTime: 0.07
+  slashCooldown: 0.07
 --- !u!50 &-315923630018866380
 Rigidbody2D:
   serializedVersion: 4
@@ -321,8 +321,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!60 &3220647775636564152
-PolygonCollider2D:
+--- !u!61 &6873754283216007486
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -334,7 +334,7 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.050074026, y: -0.068836674}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -344,15 +344,9 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.42225543, y: 0.042326584}
-      - {x: 0.3614539, y: 0.15662473}
-      - {x: 0.21694392, y: 0.07318629}
-      - {x: -0.16756639, y: 0.079936825}
-      - {x: -0.1727508, y: -0.23021984}
-      - {x: 0.25388992, y: -0.23756838}
-      - {x: 0.21848471, y: -0.10184528}
+  serializedVersion: 2
+  m_Size: {x: 0.45475003, y: 0.3122635}
+  m_EdgeRadius: 0
 --- !u!1001 &1056255885840452027
 PrefabInstance:
   m_ObjectHideFlags: 0
