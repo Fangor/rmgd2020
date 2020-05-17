@@ -51,9 +51,17 @@ public class @ControllerInput : IInputActionCollection, IDisposable
                     ""interactions"": ""Press(behavior=1)""
                 },
                 {
-                    ""name"": ""ButtonEast"",
+                    ""name"": ""ButtonEastPress"",
                     ""type"": ""Button"",
                     ""id"": ""37370a0e-2a8a-4027-87ab-9daf15fac984"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press""
+                },
+                {
+                    ""name"": ""ButtonEastRelease"",
+                    ""type"": ""Button"",
+                    ""id"": ""d4028c22-4da4-4159-9d6a-7ae72000fce5"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -135,7 +143,7 @@ public class @ControllerInput : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ButtonEast"",
+                    ""action"": ""ButtonEastPress"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -182,6 +190,17 @@ public class @ControllerInput : IInputActionCollection, IDisposable
                     ""action"": ""ButtonSouthRelease"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""896bb3c9-0b1a-4a1c-b907-522c7b397cad"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ButtonEastRelease"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -194,7 +213,8 @@ public class @ControllerInput : IInputActionCollection, IDisposable
         m_Cat_ButtonNorth = m_Cat.FindAction("ButtonNorth", throwIfNotFound: true);
         m_Cat_ButtonSouthPress = m_Cat.FindAction("ButtonSouthPress", throwIfNotFound: true);
         m_Cat_ButtonSouthRelease = m_Cat.FindAction("ButtonSouthRelease", throwIfNotFound: true);
-        m_Cat_ButtonEast = m_Cat.FindAction("ButtonEast", throwIfNotFound: true);
+        m_Cat_ButtonEastPress = m_Cat.FindAction("ButtonEastPress", throwIfNotFound: true);
+        m_Cat_ButtonEastRelease = m_Cat.FindAction("ButtonEastRelease", throwIfNotFound: true);
         m_Cat_ButtonWest = m_Cat.FindAction("ButtonWest", throwIfNotFound: true);
         m_Cat_ButtonStart = m_Cat.FindAction("ButtonStart", throwIfNotFound: true);
         m_Cat_ButtonSelect = m_Cat.FindAction("ButtonSelect", throwIfNotFound: true);
@@ -251,7 +271,8 @@ public class @ControllerInput : IInputActionCollection, IDisposable
     private readonly InputAction m_Cat_ButtonNorth;
     private readonly InputAction m_Cat_ButtonSouthPress;
     private readonly InputAction m_Cat_ButtonSouthRelease;
-    private readonly InputAction m_Cat_ButtonEast;
+    private readonly InputAction m_Cat_ButtonEastPress;
+    private readonly InputAction m_Cat_ButtonEastRelease;
     private readonly InputAction m_Cat_ButtonWest;
     private readonly InputAction m_Cat_ButtonStart;
     private readonly InputAction m_Cat_ButtonSelect;
@@ -263,7 +284,8 @@ public class @ControllerInput : IInputActionCollection, IDisposable
         public InputAction @ButtonNorth => m_Wrapper.m_Cat_ButtonNorth;
         public InputAction @ButtonSouthPress => m_Wrapper.m_Cat_ButtonSouthPress;
         public InputAction @ButtonSouthRelease => m_Wrapper.m_Cat_ButtonSouthRelease;
-        public InputAction @ButtonEast => m_Wrapper.m_Cat_ButtonEast;
+        public InputAction @ButtonEastPress => m_Wrapper.m_Cat_ButtonEastPress;
+        public InputAction @ButtonEastRelease => m_Wrapper.m_Cat_ButtonEastRelease;
         public InputAction @ButtonWest => m_Wrapper.m_Cat_ButtonWest;
         public InputAction @ButtonStart => m_Wrapper.m_Cat_ButtonStart;
         public InputAction @ButtonSelect => m_Wrapper.m_Cat_ButtonSelect;
@@ -288,9 +310,12 @@ public class @ControllerInput : IInputActionCollection, IDisposable
                 @ButtonSouthRelease.started -= m_Wrapper.m_CatActionsCallbackInterface.OnButtonSouthRelease;
                 @ButtonSouthRelease.performed -= m_Wrapper.m_CatActionsCallbackInterface.OnButtonSouthRelease;
                 @ButtonSouthRelease.canceled -= m_Wrapper.m_CatActionsCallbackInterface.OnButtonSouthRelease;
-                @ButtonEast.started -= m_Wrapper.m_CatActionsCallbackInterface.OnButtonEast;
-                @ButtonEast.performed -= m_Wrapper.m_CatActionsCallbackInterface.OnButtonEast;
-                @ButtonEast.canceled -= m_Wrapper.m_CatActionsCallbackInterface.OnButtonEast;
+                @ButtonEastPress.started -= m_Wrapper.m_CatActionsCallbackInterface.OnButtonEastPress;
+                @ButtonEastPress.performed -= m_Wrapper.m_CatActionsCallbackInterface.OnButtonEastPress;
+                @ButtonEastPress.canceled -= m_Wrapper.m_CatActionsCallbackInterface.OnButtonEastPress;
+                @ButtonEastRelease.started -= m_Wrapper.m_CatActionsCallbackInterface.OnButtonEastRelease;
+                @ButtonEastRelease.performed -= m_Wrapper.m_CatActionsCallbackInterface.OnButtonEastRelease;
+                @ButtonEastRelease.canceled -= m_Wrapper.m_CatActionsCallbackInterface.OnButtonEastRelease;
                 @ButtonWest.started -= m_Wrapper.m_CatActionsCallbackInterface.OnButtonWest;
                 @ButtonWest.performed -= m_Wrapper.m_CatActionsCallbackInterface.OnButtonWest;
                 @ButtonWest.canceled -= m_Wrapper.m_CatActionsCallbackInterface.OnButtonWest;
@@ -316,9 +341,12 @@ public class @ControllerInput : IInputActionCollection, IDisposable
                 @ButtonSouthRelease.started += instance.OnButtonSouthRelease;
                 @ButtonSouthRelease.performed += instance.OnButtonSouthRelease;
                 @ButtonSouthRelease.canceled += instance.OnButtonSouthRelease;
-                @ButtonEast.started += instance.OnButtonEast;
-                @ButtonEast.performed += instance.OnButtonEast;
-                @ButtonEast.canceled += instance.OnButtonEast;
+                @ButtonEastPress.started += instance.OnButtonEastPress;
+                @ButtonEastPress.performed += instance.OnButtonEastPress;
+                @ButtonEastPress.canceled += instance.OnButtonEastPress;
+                @ButtonEastRelease.started += instance.OnButtonEastRelease;
+                @ButtonEastRelease.performed += instance.OnButtonEastRelease;
+                @ButtonEastRelease.canceled += instance.OnButtonEastRelease;
                 @ButtonWest.started += instance.OnButtonWest;
                 @ButtonWest.performed += instance.OnButtonWest;
                 @ButtonWest.canceled += instance.OnButtonWest;
@@ -338,7 +366,8 @@ public class @ControllerInput : IInputActionCollection, IDisposable
         void OnButtonNorth(InputAction.CallbackContext context);
         void OnButtonSouthPress(InputAction.CallbackContext context);
         void OnButtonSouthRelease(InputAction.CallbackContext context);
-        void OnButtonEast(InputAction.CallbackContext context);
+        void OnButtonEastPress(InputAction.CallbackContext context);
+        void OnButtonEastRelease(InputAction.CallbackContext context);
         void OnButtonWest(InputAction.CallbackContext context);
         void OnButtonStart(InputAction.CallbackContext context);
         void OnButtonSelect(InputAction.CallbackContext context);

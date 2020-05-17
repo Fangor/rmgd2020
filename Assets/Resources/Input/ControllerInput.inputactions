@@ -38,9 +38,17 @@
                     "interactions": "Press(behavior=1)"
                 },
                 {
-                    "name": "ButtonEast",
+                    "name": "ButtonEastPress",
                     "type": "Button",
                     "id": "37370a0e-2a8a-4027-87ab-9daf15fac984",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
+                },
+                {
+                    "name": "ButtonEastRelease",
+                    "type": "Button",
+                    "id": "d4028c22-4da4-4159-9d6a-7ae72000fce5",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -122,7 +130,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ButtonEast",
+                    "action": "ButtonEastPress",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -167,6 +175,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "ButtonSouthRelease",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "896bb3c9-0b1a-4a1c-b907-522c7b397cad",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "Press(behavior=1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ButtonEastRelease",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

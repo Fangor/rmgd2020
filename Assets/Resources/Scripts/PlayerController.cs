@@ -37,6 +37,10 @@ public class PlayerController : MonoBehaviour
     private bool isSlashing = false;
     private bool isFacingRight = true;
 
+    private bool isPurring = false;
+    public GameObject purrEffect;
+    public int purringPointsPerSec = 10;
+
 
     // Start is called before the first frame update
     void Start()
@@ -67,6 +71,12 @@ public class PlayerController : MonoBehaviour
             
         }
 
+        PlayerFeet playerFeet = GetComponentInChildren<PlayerFeet>();
+        if (!playerFeet.touchingGround){
+            isPurring = false;
+            purrEffect.SetActive(false);
+        }
+
         pointTimer += Time.deltaTime;
         List<string> comboList = new List<string>();
         if (pointTimer >= 1f){
@@ -74,9 +84,13 @@ public class PlayerController : MonoBehaviour
                 score += ballPointsPerSec;
                 comboList.Add("+" + ballPointsPerSec + "\tToy");
             }
-            if (transform.position.y > 0f){
+            if (transform.position.y > 0f && playerFeet.touchingObstacle){
                 score += highGroundPointsPerSec;
-                comboList.Add("+" + highGroundPointsPerSec + "\tHighGround");
+                comboList.Add("+" + highGroundPointsPerSec + "\tHigh Ground");
+            }
+            if (isPurring){
+                score += purringPointsPerSec;
+                comboList.Add("+" + purringPointsPerSec + "\tPurring");
             }
 
             UITextManager.instance.UpdateScore(playerNumber, score);
@@ -132,13 +146,24 @@ public class PlayerController : MonoBehaviour
         isJumping = false;
     }
 
-    private void OnButtonEast()
+    private void OnButtonEastPress()
     {
-        //Meow
+        //Purr
+        PlayerFeet playerFeet = GetComponentInChildren<PlayerFeet>();
+        if (playerFeet.touchingGround){
+            isPurring = true;
+            purrEffect.SetActive(true);
+        }
+    }
+    private void OnButtonEastRelease()
+    {
+        //Jump
+        isPurring = false;
+        purrEffect.SetActive(false);
     }
     private void OnButtonNorth()
     {
-        //Purr
+        //TBA
     }
 
     private void OnButtonWest()
