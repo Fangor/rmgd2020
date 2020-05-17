@@ -17,8 +17,9 @@ public class GameManager : Singleton<GameManager>
 
     public float roundTimer = 99f;
     public float maxRoundTimer = 99;
-    //public bool gameStarted = false;
-    //public bool startScreen = true;
+    
+    public PlayerController player1Controller = null;
+    public PlayerController player2Controller = null;
 
     // Dictates the state of the game
     public GameState currentState
@@ -38,6 +39,14 @@ public class GameManager : Singleton<GameManager>
         }
         if (roundTimer <= 0f){
             currentState = GameState.Victory;
+            if (player1Controller.score > player2Controller.score){
+                UITextManager.instance.DisplayVictoryText("Player 1 Wins!");
+            }
+            else if (player1Controller.score < player2Controller.score){
+                UITextManager.instance.DisplayVictoryText("Player 2 Wins!");
+            } else{
+                UITextManager.instance.DisplayVictoryText("Draw!");
+            }
         }
     }
 

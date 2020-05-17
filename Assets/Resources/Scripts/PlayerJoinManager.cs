@@ -32,6 +32,7 @@ public class PlayerJoinManager : MonoBehaviour
             transform.Translate(-1f, 0,0);
 
             PlayerController playerController = playerInput.GetComponentInParent<PlayerController>();
+            GameManager.instance.player1Controller = playerController;
             playerController.playerNumber = 1;
         }
         if (playerNumber == 2){
@@ -41,6 +42,7 @@ public class PlayerJoinManager : MonoBehaviour
             transform.Translate(1f, 0,0);
 
             PlayerController playerController = playerInput.GetComponentInParent<PlayerController>();
+            GameManager.instance.player2Controller = playerController;
             playerController.playerNumber = 2;
         }
 

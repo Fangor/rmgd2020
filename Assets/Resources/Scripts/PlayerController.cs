@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     public float dropItemSpeed = 1f;
 
 
-    private int score = 0;
+    public int score = 0;
     public int ballPointsPerSec = 100;
 
     private float pointTimer = 0f;

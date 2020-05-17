@@ -16,18 +16,21 @@ public class UITextManager : Singleton<UITextManager>
     public TextMeshProUGUI p2ScoreText;
 
     public TextMeshProUGUI roundTimerText;
+    public TextMeshProUGUI victoryText;
 
     public int countdownSeconds = 5;
 
     public GameObject titlePanel;
     public GameObject countdownPanel;
     public GameObject scorePanel;
+    public GameObject victoryPanel;
 
     public void Start()
     {
         titlePanel.SetActive(true);
         countdownPanel.SetActive(false);
         scorePanel.SetActive(false);
+        victoryPanel.SetActive(false);
 
     }
 
@@ -101,5 +104,10 @@ public class UITextManager : Singleton<UITextManager>
     public void UpdateRoundTime(float roundTimer){
         int roundTimerCeiling = Mathf.CeilToInt(roundTimer);
         roundTimerText.text = "" + roundTimerCeiling;
+    }
+
+    public void DisplayVictoryText(string text){
+        victoryText.text = text;
+        victoryPanel.SetActive(true);
     }
 }
