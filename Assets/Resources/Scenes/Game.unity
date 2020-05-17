@@ -1207,7 +1207,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.5687077, g: 0.8463239, b: 0.8490566, a: 0}
+  m_BackGroundColor: {r: 0.1981132, g: 0.82533157, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -3413,16 +3413,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ball
       objectReference: {fileID: 0}
-    - target: {fileID: 885656172995118113, guid: 6404fd69f1062b742a36bf6968e8dd9a,
-        type: 3}
-      propertyPath: m_TagString
-      value: toy
-      objectReference: {fileID: 0}
-    - target: {fileID: 1828949541560359778, guid: 6404fd69f1062b742a36bf6968e8dd9a,
-        type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: 266821add0d40814d83f4c13a55ab974, type: 2}
     - target: {fileID: 8381367189738276897, guid: 6404fd69f1062b742a36bf6968e8dd9a,
         type: 3}
       propertyPath: m_LocalPosition.x

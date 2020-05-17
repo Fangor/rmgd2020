@@ -256,6 +256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   touchingGround: 0
+  touchingObstacle: 0
 --- !u!1 &6072895087727379811
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,7 +432,7 @@ SpriteRenderer:
   m_SortingLayerID: 1700156469
   m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 66ad62d07773d814ab151e084b744943, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8fff383febd0c7640a5675641e03874d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
