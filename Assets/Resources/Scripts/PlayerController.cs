@@ -65,6 +65,7 @@ public class PlayerController : MonoBehaviour
             }
 
             UITextManager.instance.UpdateScore(playerNumber, score);
+            pointTimer = 0f;
         }
     }
 

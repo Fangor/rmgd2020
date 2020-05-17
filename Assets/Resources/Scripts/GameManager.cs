@@ -15,6 +15,8 @@ public enum GameState
 public class GameManager : Singleton<GameManager>
 {
 
+    public float roundTimer = 99f;
+    public float maxRoundTimer = 99;
     //public bool gameStarted = false;
     //public bool startScreen = true;
 
@@ -26,6 +28,17 @@ public class GameManager : Singleton<GameManager>
     void Start()
     {
         currentState = GameState.WaitingForPlayers;
+    }
+
+    void Update(){
+        if (currentState == GameState.MainGame){
+            roundTimer -= Time.deltaTime;
+            UITextManager.instance.UpdateRoundTime(roundTimer);
+
+        }
+        if (roundTimer <= 0f){
+            currentState = GameState.Victory;
+        }
     }
 
     protected override void Awake()
@@ -48,6 +61,8 @@ public class GameManager : Singleton<GameManager>
         currentState = GameState.MainGame;
         LevelManager.instance.ClearPen();
         UITextManager.instance.DisplayScores();
+        roundTimer = maxRoundTimer;
+
     }
 
     public void GotoVictoryState()

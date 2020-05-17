@@ -15,6 +15,8 @@ public class UITextManager : Singleton<UITextManager>
     public TextMeshProUGUI p1ScoreText;
     public TextMeshProUGUI p2ScoreText;
 
+    public TextMeshProUGUI roundTimerText;
+
     public int countdownSeconds = 5;
 
     public GameObject titlePanel;
@@ -33,6 +35,7 @@ public class UITextManager : Singleton<UITextManager>
     {
         base.Awake();
     }
+
 
     public void Player1Joined(){
         player1JoinStatus.text = "Player 1 Ready";
@@ -93,5 +96,10 @@ public class UITextManager : Singleton<UITextManager>
             p2ScoreText.text = "Score: " + paddedScore;
         }
         
+    }
+
+    public void UpdateRoundTime(float roundTimer){
+        int roundTimerCeiling = Mathf.CeilToInt(roundTimer);
+        roundTimerText.text = "" + roundTimerCeiling;
     }
 }
