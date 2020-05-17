@@ -168,6 +168,23 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public void DropToy(bool directionRight){
+        if (hasToy){
+            Vector3 ballEjectPos = transform.position;
+            ballEjectPos.y += .2f;
+            Rigidbody2D ballRB = Instantiate(ballPrefab,ballEjectPos, transform.rotation);
+            
+            if (directionRight){
+                ballRB.velocity = new Vector2(dropItemSpeed, dropItemSpeed);
+            } else{
+                ballRB.velocity = new Vector2(-dropItemSpeed, dropItemSpeed);
+            }
+            hasToy = false;
+            BallInMouth ballInMouth = GetComponentInChildren<BallInMouth>();
+            ballInMouth.DisableBallInMouth();
+        }
+    }
+
         IEnumerator SlashAnimation()
     {
         float timeToAnimate = 0f;

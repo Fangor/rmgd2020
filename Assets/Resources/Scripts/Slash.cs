@@ -28,12 +28,15 @@ public class Slash : MonoBehaviour
                 //nudge the other player slightly to prevent friction interference
                 Vector2 nudge = new Vector2(.001f, .001f);
                 playerController.transform.Translate(nudge);
+                playerController.DropToy(false);
             } else{
                 knockback = new Vector2(-knockbackX, knockbackY);
                 Vector2 nudge = new Vector2(-.001f, .001f);
                 playerController.transform.Translate(nudge);
+                playerController.DropToy(true);
             }
             playerController.rb.AddForce(knockback,ForceMode2D.Impulse);
+            
         }
     }
 }
