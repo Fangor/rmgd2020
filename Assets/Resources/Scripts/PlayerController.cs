@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour
     private GrabRadius grabRadius;
     public int playerNumber = 1;
 
+    public GameObject slash;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -106,7 +108,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnButtonEast()
     {
-        //Interact
+        //Meow
     }
     private void OnButtonNorth()
     {
@@ -131,6 +133,10 @@ public class PlayerController : MonoBehaviour
             hasToy = false;
             BallInMouth ballInMouth = GetComponentInChildren<BallInMouth>();
             ballInMouth.DisableBallInMouth();
+        }
+        else {
+            //attack
+            slash.SetActive(true);
         }
 
     }
