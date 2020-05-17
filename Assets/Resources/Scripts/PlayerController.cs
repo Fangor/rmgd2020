@@ -30,6 +30,9 @@ public class PlayerController : MonoBehaviour
     public int playerNumber = 1;
 
     public GameObject slash;
+    public float slashTime = .2f;
+    public float slashCooldown = .3f;
+    private bool isSlashing = false;
 
     // Start is called before the first frame update
     void Start()
@@ -136,9 +139,32 @@ public class PlayerController : MonoBehaviour
         }
         else {
             //attack
-            slash.SetActive(true);
+            if (isSlashing != true){
+                slash.SetActive(true);
+                isSlashing = true;
+                StartCoroutine("SlashAnimation");
+            }
         }
 
+    }
+
+        IEnumerator SlashAnimation()
+    {
+        float timeToAnimate = 0f;
+        while (timeToAnimate <= slashTime)
+        {
+            timeToAnimate += Time.deltaTime;
+            yield return null;
+        }
+        slash.SetActive(false);
+
+        timeToAnimate = 0f;
+        while (timeToAnimate <= slashCooldown)
+        {
+            timeToAnimate += Time.deltaTime;
+            yield return null;
+        }
+        isSlashing = false;
     }
 
     private void OnButtonStart()

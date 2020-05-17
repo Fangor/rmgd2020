@@ -312,6 +312,8 @@ MonoBehaviour:
   ballPointsPerSec: 100
   playerNumber: 1
   slash: {fileID: 8007617223964939538}
+  slashTime: 0.2
+  slashCooldown: 0.1
 --- !u!50 &-315923630018866380
 Rigidbody2D:
   serializedVersion: 4
