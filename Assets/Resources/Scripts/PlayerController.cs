@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
 
     public int score = 0;
     public int ballPointsPerSec = 100;
+    public float highGroundLine = 0f;
+    public int highGroundPointsPerSec = 30;
 
     private float pointTimer = 0f;
 
@@ -68,6 +70,9 @@ public class PlayerController : MonoBehaviour
         if (pointTimer >= 1f){
             if (hasToy){
                 score += ballPointsPerSec;
+            }
+            if (transform.position.y > 0f){
+                score += highGroundPointsPerSec;
             }
 
             UITextManager.instance.UpdateScore(playerNumber, score);
