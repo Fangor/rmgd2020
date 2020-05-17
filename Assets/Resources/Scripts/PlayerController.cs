@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
 
     private float pointTimer = 0f;
 
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     private GrabRadius grabRadius;
     public int playerNumber = 1;
 
@@ -145,7 +145,12 @@ public class PlayerController : MonoBehaviour
             Vector3 ballEjectPos = transform.position;
             ballEjectPos.y += .2f;
             Rigidbody2D ballRB = Instantiate(ballPrefab,ballEjectPos, transform.rotation);
-            ballRB.velocity = new Vector2(dropItemSpeed, dropItemSpeed);
+            
+            if (isFacingRight){
+                ballRB.velocity = new Vector2(dropItemSpeed, dropItemSpeed);
+            } else{
+                ballRB.velocity = new Vector2(-dropItemSpeed, dropItemSpeed);
+            }
             hasToy = false;
             BallInMouth ballInMouth = GetComponentInChildren<BallInMouth>();
             ballInMouth.DisableBallInMouth();
@@ -154,6 +159,8 @@ public class PlayerController : MonoBehaviour
             //attack
             if (isSlashing != true){
                 slash.SetActive(true);
+                Slash slashScript = slash.GetComponent<Slash>();
+                slashScript.isFacingRight = isFacingRight;
                 isSlashing = true;
                 StartCoroutine("SlashAnimation");
             }

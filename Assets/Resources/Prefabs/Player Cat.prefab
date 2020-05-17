@@ -155,6 +155,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fca5fc79372f54a499908b18c9b550ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFacingRight: 1
+  knockbackY: 5
+  knockbackX: 10
 --- !u!1 &9040866880920161000
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,7 +174,7 @@ GameObject:
   - component: {fileID: 6873754283216007486}
   m_Layer: 0
   m_Name: Player Cat
-  m_TagString: Untagged
+  m_TagString: player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -296,6 +299,7 @@ MonoBehaviour:
   dropItemSpeed: 5
   score: 0
   ballPointsPerSec: 100
+  rb: {fileID: 0}
   playerNumber: 1
   slash: {fileID: 8007617223964939538}
   slashTime: 0.07
@@ -419,6 +423,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1.2002524
       objectReference: {fileID: 0}
+    - target: {fileID: 6342931242561714559, guid: 969618e1b32b6024d85304db39879864,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7027962127102336169, guid: 969618e1b32b6024d85304db39879864,
         type: 3}
       propertyPath: m_Name
@@ -428,6 +437,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8863437729056909946, guid: 969618e1b32b6024d85304db39879864,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1050166817
+      objectReference: {fileID: 0}
+    - target: {fileID: 8863437729056909946, guid: 969618e1b32b6024d85304db39879864,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 969618e1b32b6024d85304db39879864, type: 3}
