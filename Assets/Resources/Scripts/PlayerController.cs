@@ -41,6 +41,9 @@ public class PlayerController : MonoBehaviour
     public GameObject purrEffect;
     public int purringPointsPerSec = 10;
 
+    public bool hasTreat = false;
+    public int treatPoints = 1000;
+
 
     // Start is called before the first frame update
     void Start()
@@ -92,6 +95,12 @@ public class PlayerController : MonoBehaviour
                 score += purringPointsPerSec;
                 comboList.Add("+" + purringPointsPerSec + "\tPurring");
             }
+            if (hasTreat){
+                score += treatPoints;
+                hasTreat = false;
+                comboList.Add("+" + treatPoints + "\tFish Treat");
+            }
+
 
             UITextManager.instance.UpdateScore(playerNumber, score);
             UITextManager.instance.UpdateComboBar(playerNumber, comboList);
@@ -247,5 +256,7 @@ public class PlayerController : MonoBehaviour
             UITextManager.instance.DisplayCountdown();
         }
     }
+
+
 
 }

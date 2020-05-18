@@ -8,6 +8,7 @@ TagManager:
   - player
   - toy
   - obstacle
+  - treat
   layers:
   - Default
   - TransparentFX
