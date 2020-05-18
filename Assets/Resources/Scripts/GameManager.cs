@@ -71,11 +71,13 @@ public class GameManager : Singleton<GameManager>
         LevelManager.instance.ClearPen();
         UITextManager.instance.DisplayScores();
         roundTimer = maxRoundTimer;
+        FishSpawnManager.instance.spawningEnabled=true;
 
     }
 
     public void GotoVictoryState()
     {
         currentState = GameState.Victory;
+        FishSpawnManager.instance.spawningEnabled=false;
     }
 }
