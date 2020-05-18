@@ -8,6 +8,9 @@ public class BallInMouth : MonoBehaviour
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.enabled = true;
 
+        AudioSource audioSource = GetComponent<AudioSource>();
+        audioSource.Play();
+
     }
 
     public void DisableBallInMouth(){

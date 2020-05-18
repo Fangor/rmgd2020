@@ -128,15 +128,21 @@ public class PlayerController : MonoBehaviour
 
     private void OnMove(InputValue value)
     {
-        i_movement = value.Get<Vector2>();
-        if (i_movement.x > 0f){
-            i_movement.x = 1f;
-        } else if (i_movement.x < 0f){
-            i_movement.x = -1f;
-        } else {
-            i_movement.x = 0f;
+        if (!isPurring){
+            i_movement = value.Get<Vector2>();
+            if (i_movement.x > 0f){
+                i_movement.x = 1f;
+            } else if (i_movement.x < 0f){
+                i_movement.x = -1f;
+            } else {
+                i_movement.x = 0f;
+            }
+            i_movement.y = 0f;
         }
-        i_movement.y = 0f;
+        else{
+            i_movement = Vector2.zero;
+        }
+        
     }
 
     private void OnButtonSouthPress()
@@ -147,6 +153,7 @@ public class PlayerController : MonoBehaviour
             isJumping = true;
             timeInAir = 0f;
             rb.AddForce(Vector2.up * initialJumpForce, ForceMode2D.Impulse);
+            playerFeet.PlayJumpSound();
         }
     }
     private void OnButtonSouthRelease()
@@ -255,6 +262,11 @@ public class PlayerController : MonoBehaviour
             GameManager.instance.GotoCountdownState();
             UITextManager.instance.DisplayCountdown();
         }
+    }
+
+    public void PlayHurtSound(){
+        AudioSource audioSource = GetComponent<AudioSource>();
+        audioSource.Play();
     }
 
 

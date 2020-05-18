@@ -31,4 +31,9 @@ public class PlayerFeet : MonoBehaviour
         }
     }
 
+    public void PlayJumpSound(){
+        AudioSource audioSource = GetComponent<AudioSource>();
+        audioSource.Play();
+    }
+
 }

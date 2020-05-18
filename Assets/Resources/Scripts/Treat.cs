@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Treat : MonoBehaviour
 {
+
+    public AudioClip treatSound;
     public void EnableTreat(){
         gameObject.SetActive(true);
 
@@ -18,6 +20,8 @@ public class Treat : MonoBehaviour
         if ("player" == otherCollider.tag){
             PlayerController playerController = otherCollider.GetComponent<PlayerController>();
             playerController.hasTreat = true;
+
+            AudioSource.PlayClipAtPoint(treatSound, Vector3.zero);
             
             Destroy(gameObject);
         }

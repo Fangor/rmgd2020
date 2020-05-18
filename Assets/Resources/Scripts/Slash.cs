@@ -36,6 +36,7 @@ public class Slash : MonoBehaviour
                 playerController.DropToy(true);
             }
             playerController.rb.AddForce(knockback,ForceMode2D.Impulse);
+            playerController.PlayHurtSound();
             
         }
     }
