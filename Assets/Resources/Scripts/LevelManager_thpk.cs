@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelManager : Singleton<LevelManager>
+public class LevelManager_thpk : Singleton<LevelManager_thpk>
 {
 
 

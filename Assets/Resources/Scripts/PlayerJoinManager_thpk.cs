@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerJoinManager : MonoBehaviour
+public class PlayerJoinManager_thpk : MonoBehaviour
 {
     private bool player1joined = false;
     private bool player2joined = false;
@@ -25,30 +25,30 @@ public class PlayerJoinManager : MonoBehaviour
         uint playerNumber = playerInput.user.id;
         if (playerNumber == 1){
             player1joined = true;
-            UITextManager.instance.Player1Joined();
+            UITextManager_thpk.instance.Player1Joined();
             SpriteRenderer spriteRenderer = playerInput.GetComponentInParent<SpriteRenderer>();
             spriteRenderer.color = new Color(.5f, .5f, .5f, 1f);
             Transform transform = playerInput.GetComponentInParent<Transform>();
             transform.Translate(-1f, 0,0);
 
             PlayerController playerController = playerInput.GetComponentInParent<PlayerController>();
-            GameManager.instance.player1Controller = playerController;
+            GameManager_thpk.instance.player1Controller = playerController;
             playerController.playerNumber = 1;
         }
         if (playerNumber == 2){
             player2joined = true;
-            UITextManager.instance.Player2Joined();
+            UITextManager_thpk.instance.Player2Joined();
             Transform transform = playerInput.GetComponentInParent<Transform>();
             transform.Translate(1f, 0,0);
 
             PlayerController playerController = playerInput.GetComponentInParent<PlayerController>();
-            GameManager.instance.player2Controller = playerController;
+            GameManager_thpk.instance.player2Controller = playerController;
             playerController.playerNumber = 2;
         }
 
         if (player1joined && player2joined){
-            GameManager.instance.GotoReadyState();
-            UITextManager.instance.DisplayReadyText();
+            GameManager_thpk.instance.GotoReadyState();
+            UITextManager_thpk.instance.DisplayReadyText();
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class UITextManager : Singleton<UITextManager>
+public class UITextManager_thpk : Singleton<UITextManager_thpk>
 {
     public TextMeshProUGUI player1JoinStatus;
     public TextMeshProUGUI player2JoinStatus;
@@ -84,7 +84,7 @@ public class UITextManager : Singleton<UITextManager>
             yield return null;
             
         }
-        GameManager.instance.GotoMainGameState();
+        GameManager_thpk.instance.GotoMainGameState();
     }
 
     public void DisplayScores(){

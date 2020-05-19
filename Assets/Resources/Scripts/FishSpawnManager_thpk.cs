@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FishSpawnManager : Singleton<FishSpawnManager>
+public class FishSpawnManager_thpk : Singleton<FishSpawnManager_thpk>
 {
 
     public GameObject fishSpawners;

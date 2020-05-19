@@ -12,7 +12,7 @@ public enum GameState
     Victory 
 }
 
-public class GameManager : Singleton<GameManager>
+public class GameManager_thpk : Singleton<GameManager_thpk>
 {
 
     public float roundTimer = 99f;
@@ -34,18 +34,18 @@ public class GameManager : Singleton<GameManager>
     void Update(){
         if (currentState == GameState.MainGame){
             roundTimer -= Time.deltaTime;
-            UITextManager.instance.UpdateRoundTime(roundTimer);
+            UITextManager_thpk.instance.UpdateRoundTime(roundTimer);
 
         }
         if (roundTimer <= 0f){
             currentState = GameState.Victory;
             if (player1Controller.score > player2Controller.score){
-                UITextManager.instance.DisplayVictoryText("Player 1 Wins!");
+                UITextManager_thpk.instance.DisplayVictoryText("Player 1 Wins!");
             }
             else if (player1Controller.score < player2Controller.score){
-                UITextManager.instance.DisplayVictoryText("Player 2 Wins!");
+                UITextManager_thpk.instance.DisplayVictoryText("Player 2 Wins!");
             } else{
-                UITextManager.instance.DisplayVictoryText("Draw!");
+                UITextManager_thpk.instance.DisplayVictoryText("Draw!");
             }
         }
     }
@@ -68,16 +68,16 @@ public class GameManager : Singleton<GameManager>
     public void GotoMainGameState()
     {
         currentState = GameState.MainGame;
-        LevelManager.instance.ClearPen();
-        UITextManager.instance.DisplayScores();
+        LevelManager_thpk.instance.ClearPen();
+        UITextManager_thpk.instance.DisplayScores();
         roundTimer = maxRoundTimer;
-        FishSpawnManager.instance.spawningEnabled=true;
+        FishSpawnManager_thpk.instance.spawningEnabled=true;
 
     }
 
     public void GotoVictoryState()
     {
         currentState = GameState.Victory;
-        FishSpawnManager.instance.spawningEnabled=false;
+        FishSpawnManager_thpk.instance.spawningEnabled=false;
     }
 }

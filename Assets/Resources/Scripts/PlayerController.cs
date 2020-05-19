@@ -102,8 +102,8 @@ public class PlayerController : MonoBehaviour
             }
 
 
-            UITextManager.instance.UpdateScore(playerNumber, score);
-            UITextManager.instance.UpdateComboBar(playerNumber, comboList);
+            UITextManager_thpk.instance.UpdateScore(playerNumber, score);
+            UITextManager_thpk.instance.UpdateComboBar(playerNumber, comboList);
             pointTimer = 0f;
         }
     }
@@ -257,10 +257,10 @@ public class PlayerController : MonoBehaviour
 
     private void OnButtonStart()
     {
-        if (GameManager.instance.currentState == GameState.PlayersReady)
+        if (GameManager_thpk.instance.currentState == GameState.PlayersReady)
         {
-            GameManager.instance.GotoCountdownState();
-            UITextManager.instance.DisplayCountdown();
+            GameManager_thpk.instance.GotoCountdownState();
+            UITextManager_thpk.instance.DisplayCountdown();
         }
     }
 
