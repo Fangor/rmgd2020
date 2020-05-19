@@ -2448,7 +2448,7 @@ MonoBehaviour:
   p2ComboBarText: {fileID: 1918991500}
   roundTimerText: {fileID: 2001794105}
   victoryText: {fileID: 289066881}
-  countdownSeconds: 1
+  countdownSeconds: 5
   titlePanel: {fileID: 1958398791}
   countdownPanel: {fileID: 1552763207}
   scorePanel: {fileID: 119915043}
